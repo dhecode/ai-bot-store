@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotForge | Pre-Built & Custom AI Bots for Modern Businesses</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#1e1b4b',
+                        },
+                        dark: {
+                            900: '#0a0d14',
+                            800: '#111726',
+                            700: '#1c2438'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Supabase JS Client CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #080b11;
+            color: #f3f4f6;
+        }
+        .glow-effect {
+            background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.18) 0%, transparent 65%);
+        }
+        .card-glow:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 35px -5px rgba(99, 102, 241, 0.25);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Banner: Promo -->
+    <div class="bg-gradient-to-r from-brand-700 via-indigo-600 to-purple-700 text-white text-xs font-semibold py-2 px-4 text-center tracking-wide flex items-center justify-center gap-2">
+        <span class="bg-white/20 px-2 py-0.5 rounded-full text-[10px] uppercase font-bold tracking-wider">Fast Launch</span>
+        Get your custom AI Bot built, tested, and live in under 48 hours.
+        <a href="#catalog" class="underline ml-1 hover:text-brand-50 transition">Browse Bots &rarr;</a>
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-dark-900/80 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center shadow-lg shadow-brand-500/30">
+                    <i data-lucide="bot" class="w-6 h-6 text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white">Bot<span class="text-brand-500">Forge</span></span>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="#demo" class="hover:text-white transition">Live Interactive Demo</a>
+                <a href="#catalog" class="hover:text-white transition">Bot Catalog</a>
+                <a href="#how-it-works" class="hover:text-white transition">How It Works</a>
+                <a href="#pricing" class="hover:text-white transition">Pricing</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <!-- Currency Toggle -->
+                <div class="flex items-center bg-dark-800 p-1 rounded-xl border border-white/10 text-xs font-semibold">
+                    <button id="btnUSD" onclick="setCurrency('USD')" class="px-2.5 py-1 rounded-lg bg-brand-600 text-white transition">USD ($)</button>
+                    <button id="btnINR" onclick="setCurrency('INR')" class="px-2.5 py-1 rounded-lg text-gray-400 hover:text-white transition">INR (₹)</button>
+                </div>
+
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-xl shadow-lg shadow-brand-600/30 transition">
+                    Order Custom Bot
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-28 px-6 glow-effect overflow-hidden">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-500 text-xs font-semibold mb-8">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                <span>Ready-To-Deploy Business AI Systems</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                Turn Missed Calls & Slow Leads Into <br class="hidden sm:inline"/>
+                <span class="bg-gradient-to-r from-brand-500 via-indigo-300 to-purple-400 bg-clip-text text-transparent">Instant Paying Customers</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                We design and deploy automated WhatsApp booking bots, AI phone voice receptionists, and 24/7 customer support agents customized for your exact business.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#demo" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 rounded-xl shadow-xl shadow-brand-600/25 transition">
+                    <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+                    Test Live Interactive Bot
+                </a>
+                <a href="#catalog" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-gray-300 bg-dark-800 hover:bg-dark-700 border border-white/10 rounded-xl transition">
+                    Explore Bot Store
+                </a>
+            </div>
+
+            <!-- Social Proof Metrics -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-10 border-t border-white/5 text-left">
+                <div class="p-4 rounded-xl bg-dark-800/40 border border-white/5">
+                    <div class="text-2xl font-bold text-white mb-1">< 800ms</div>
+                    <div class="text-xs text-gray-400">Ultra-low voice response latency</div>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-800/40 border border-white/5">
+                    <div class="text-2xl font-bold text-white mb-1">24 / 7</div>
+                    <div class="text-xs text-gray-400">Zero missed after-hours leads</div>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-800/40 border border-white/5">
+                    <div class="text-2xl font-bold text-white mb-1">48 Hours</div>
+                    <div class="text-xs text-gray-400">Average client setup turnaround</div>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-800/40 border border-white/5">
+                    <div class="text-2xl font-bold text-white mb-1">100%</div>
+                    <div class="text-xs text-gray-400">Customized to your price menu & calendar</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE INTERACTIVE BOT & VOICE CALL DEMO SECTION -->
+    <section id="demo" class="py-20 px-6 bg-dark-800/60 border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-brand-500 text-xs font-bold tracking-widest uppercase">Live Interactive Demos</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Test Both Voice Calls & Chat Assistants</h2>
+                <p class="text-gray-400 text-sm mt-3 max-w-xl mx-auto">Experience our real-time AI agents. Click "Call AI Receptionist" to hear realistic voice audio through your speakers, or test the chat assistant below.</p>
+            </div>
+
+            <!-- Side-by-Side Demos Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                
+                <!-- DEMO 1: LIVE VOICE PHONE CALL SIMULATOR -->
+                <div class="bg-gradient-to-b from-dark-900 to-dark-800 rounded-3xl border border-brand-500/30 p-6 shadow-2xl relative overflow-hidden">
+                    <div class="flex items-center justify-between pb-4 border-b border-white/5 mb-6">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-brand-400">Voice Call Simulator</span>
+                        </div>
+                        
+                        <!-- Multi-Language Selector: English, Hindi, Kannada -->
+                        <div class="flex items-center bg-dark-900 border border-white/10 p-0.5 rounded-lg text-[10px] font-bold">
+                            <button id="vlang-en" onclick="setVoiceLanguage('en')" class="px-2 py-0.5 rounded text-gray-400 hover:text-white transition">English</button>
+                            <button id="vlang-hi" onclick="setVoiceLanguage('hi')" class="px-2 py-0.5 rounded bg-brand-600 text-white transition">🇮🇳 हिंदी</button>
+                            <button id="vlang-kn" onclick="setVoiceLanguage('kn')" class="px-2 py-0.5 rounded text-gray-400 hover:text-white transition">🟡🔴 ಕನ್ನಡ</button>
+                        </div>
+                    </div>
+
+                    <!-- Phone Screen UI -->
+                    <div class="bg-dark-900/90 rounded-2xl border border-white/5 p-6 text-center relative">
+                        <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-600 to-purple-600 mx-auto flex items-center justify-center text-white mb-4 shadow-xl shadow-brand-500/20">
+                            <i data-lucide="phone" class="w-9 h-9" id="call-icon"></i>
+                        </div>
+
+                        <h3 id="voice-caller-name" class="text-lg font-bold text-white">Apex Auto Detailing AI</h3>
+                        <p id="voice-call-status" class="text-xs text-gray-400 mt-1">Ready to Call • Click to Test Voice</p>
+
+                        <!-- Audio Waveform Visualization -->
+                        <div class="flex items-center justify-center gap-1.5 h-10 my-6" id="audio-waveform">
+                            <span class="w-1.5 h-3 bg-brand-500/40 rounded-full transition-all"></span>
+                            <span class="w-1.5 h-5 bg-brand-500/50 rounded-full transition-all"></span>
+                            <span class="w-1.5 h-8 bg-brand-500/70 rounded-full transition-all"></span>
+                            <span class="w-1.5 h-4 bg-brand-500/40 rounded-full transition-all"></span>
+                            <span class="w-1.5 h-7 bg-brand-500/60 rounded-full transition-all"></span>
+                            <span class="w-1.5 h-10 bg-brand-500 rounded-full transition-all"></span>
+                            <span class="w-1.5 h-5 bg-brand-500/50 rounded-full transition-all"></span>
+                            <span class="w-1.5 h-3 bg-brand-500/40 rounded-full transition-all"></span>
+                        </div>
+
+                        <!-- Live Call Transcript Box -->
+                        <div id="voice-transcript" class="bg-dark-800/90 rounded-xl p-3.5 text-xs text-gray-300 min-h-[70px] flex items-center justify-center text-center italic border border-white/5 mb-6">
+                            "Click 'Start Live Voice Call' to speak with the AI and hear its realistic voice..."
+                        </div>
+
+                        <!-- Call Action Buttons -->
+                        <div class="flex items-center justify-center gap-4">
+                            <button id="btn-start-call" onclick="startVoiceCall()" class="px-6 py-3 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs shadow-lg shadow-green-600/30 transition flex items-center gap-2">
+                                <i data-lucide="phone-call" class="w-4 h-4"></i> Start Live Voice Call
+                            </button>
+                            <button id="btn-end-call" onclick="endVoiceCall()" class="px-6 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs shadow-lg shadow-red-600/30 transition hidden items-center gap-2">
+                                <i data-lucide="phone-off" class="w-4 h-4"></i> End Call
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Voice Scenarios Selector -->
+                    <div class="mt-6 pt-4 border-t border-white/5">
+                        <div class="text-[11px] font-semibold text-gray-400 mb-2">Switch Voice Scenarios:</div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button onclick="selectVoiceScenario('auto')" id="vbtn-auto" class="vbtn px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-brand-600 text-white border border-brand-500 transition">
+                                🚗 Car Detailing
+                            </button>
+                            <button onclick="selectVoiceScenario('clinic')" id="vbtn-clinic" class="vbtn px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-dark-900 text-gray-400 hover:text-white border border-white/5 transition">
+                                🩺 Dental Clinic
+                            </button>
+                            <button onclick="selectVoiceScenario('salon')" id="vbtn-salon" class="vbtn px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-dark-900 text-gray-400 hover:text-white border border-white/5 transition">
+                                💇 Luxury Salon
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEMO 2: MOCK SMARTPHONE / CHAT CONTAINER -->
+                <div class="bg-dark-900 rounded-3xl border border-white/10 shadow-2xl overflow-hidden flex flex-col h-[520px]">
+                    <!-- Chat Header -->
+                    <div class="p-4 bg-dark-800 border-b border-white/5 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <div class="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center text-white">
+                                    <i data-lucide="bot" class="w-5 h-5"></i>
+                                </div>
+                                <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-dark-900"></span>
+                            </div>
+                            <div>
+                                <div id="demo-bot-name" class="text-sm font-semibold text-white">Apex Auto Care AI</div>
+                                <div class="text-[11px] text-green-400 font-medium">● Online | Instant Replies</div>
+                            </div>
+                        </div>
+                        <button onclick="resetChat()" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-dark-700 transition" title="Reset Demo">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Messages Feed -->
+                    <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs leading-relaxed">
+                        <!-- Dynamic chat items here -->
+                    </div>
+
+                    <!-- Quick Suggested Prompts -->
+                    <div id="quick-prompts" class="px-3 py-2 bg-dark-800/80 border-t border-white/5 flex gap-2 overflow-x-auto whitespace-nowrap scrollbar-none">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Input Field -->
+                    <form id="chat-form" onsubmit="handleUserMessage(event)" class="p-3 bg-dark-800 border-t border-white/5 flex gap-2">
+                        <input type="text" id="user-input" placeholder="Type a question (e.g. prices, timings)..." class="flex-1 bg-dark-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition">
+                        <button type="submit" class="bg-brand-600 hover:bg-brand-500 text-white px-3.5 py-2.5 rounded-xl transition flex items-center justify-center">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BOT CATALOG / PACKAGES -->
+    <section id="catalog" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-500 text-xs font-bold tracking-widest uppercase">The Bot Store</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2">Choose Your AI System</h2>
+                <p class="text-gray-400 text-base mt-4">Every bot comes with custom prompt training, calendar sync, and full onboarding support. No technical experience required.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Package 1: WhatsApp Booking Assistant -->
+                <div class="bg-dark-800/80 border border-white/5 rounded-3xl p-8 card-glow transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-400 mb-6">
+                            <i data-lucide="message-square" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">WhatsApp Booking Assistant</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6">
+                            Turns WhatsApp chats into scheduled appointments. Collects client details, provides price quotes, and sends instant calendar invites.
+                        </p>
+
+                        <div class="mb-6">
+                            <span class="text-3xl font-extrabold text-white price-tag" data-usd="$99" data-inr="₹7,999">$99</span>
+                            <span class="text-xs text-gray-400 ml-1">one-time setup</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-gray-300 border-t border-white/5 pt-6 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> WhatsApp Business API integration</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Google Calendar & Slot verification</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Automated confirmation & reminders</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Custom price catalog training</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="orderBot('WhatsApp Booking Assistant', '$99 / ₹7,999')" class="w-full py-3 px-4 rounded-xl font-semibold text-xs text-white bg-dark-700 hover:bg-brand-600 border border-white/10 hover:border-transparent transition">
+                        Order WhatsApp Bot
+                    </button>
+                </div>
+
+                <!-- Package 2: AI Phone Voice Receptionist (FEATURED) -->
+                <div class="bg-gradient-to-b from-dark-800 to-dark-900 border-2 border-brand-500 rounded-3xl p-8 shadow-2xl shadow-brand-500/20 relative flex flex-col justify-between">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-600 to-indigo-600 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-4 rounded-full shadow-lg">
+                        Most Popular
+                    </div>
+
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-500/20 border border-brand-500/40 flex items-center justify-center text-brand-400 mb-6">
+                            <i data-lucide="phone-call" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">AI Voice Phone Receptionist</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6">
+                            Answers phone calls on the 1st ring with human-like realistic voice. Handles interruptions, qualifies callers, and books slots live on call.
+                        </p>
+
+                        <div class="mb-6">
+                            <span class="text-3xl font-extrabold text-white price-tag" data-usd="$299" data-inr="₹24,999">$299</span>
+                            <span class="text-xs text-gray-400 ml-1">setup + phone number</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-gray-300 border-t border-white/5 pt-6 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Dedicated local or toll-free phone number</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Natural voice with sub-800ms response</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Live transfer to human for emergencies</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Post-call SMS confirmation to caller</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Call transcript & summary sent to email</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="orderBot('AI Voice Phone Receptionist', '$299 / ₹24,999')" class="w-full py-3.5 px-4 rounded-xl font-semibold text-xs text-white bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 shadow-lg shadow-brand-600/30 transition">
+                        Order Voice Receptionist
+                    </button>
+                </div>
+
+                <!-- Package 3: Automated Lead Scraper & Outreach Engine -->
+                <div class="bg-dark-800/80 border border-white/5 rounded-3xl p-8 card-glow transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-6">
+                            <i data-lucide="target" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Lead Machine & Scraper Bot</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6">
+                            Automatically gathers targeted B2B contact details from Google Maps & public directories, cleans the data, and prepares outreach lists.
+                        </p>
+
+                        <div class="mb-6">
+                            <span class="text-3xl font-extrabold text-white price-tag" data-usd="$149" data-inr="₹11,999">$149</span>
+                            <span class="text-xs text-gray-400 ml-1">one-time build</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-gray-300 border-t border-white/5 pt-6 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Extracts verified phone numbers & emails</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Filters by city, industry, rating & reviews</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Exports directly to CSV / Excel sheet</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Automated email / WhatsApp outreach hook</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="orderBot('Lead Machine & Scraper Bot', '$149 / ₹11,999')" class="w-full py-3 px-4 rounded-xl font-semibold text-xs text-white bg-dark-700 hover:bg-brand-600 border border-white/10 hover:border-transparent transition">
+                        Order Lead Bot
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="py-20 px-6 bg-dark-800/40 border-t border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-brand-500 text-xs font-bold tracking-widest uppercase">Simple Process</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Live In 3 Simple Steps</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 rounded-2xl bg-dark-900 border border-white/5 text-center">
+                    <div class="w-10 h-10 rounded-full bg-brand-500/20 text-brand-400 font-bold text-sm flex items-center justify-center mx-auto mb-4">1</div>
+                    <h3 class="text-base font-bold text-white mb-2">Send Business Details</h3>
+                    <p class="text-xs text-gray-400">Share your price list, hours, services, and calendar link with us.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-dark-900 border border-white/5 text-center">
+                    <div class="w-10 h-10 rounded-full bg-brand-500/20 text-brand-400 font-bold text-sm flex items-center justify-center mx-auto mb-4">2</div>
+                    <h3 class="text-base font-bold text-white mb-2">We Train & Connect</h3>
+                    <p class="text-xs text-gray-400">We configure your bot, connect phone/WhatsApp pipelines, and run test calls.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-dark-900 border border-white/5 text-center">
+                    <div class="w-10 h-10 rounded-full bg-brand-500/20 text-brand-400 font-bold text-sm flex items-center justify-center mx-auto mb-4">3</div>
+                    <h3 class="text-base font-bold text-white mb-2">Activate & Profit</h3>
+                    <p class="text-xs text-gray-400">Your AI begins capturing customer inquiries and bookings 24/7 without fail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER / CONTACT MODAL -->
+    <div id="order-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-dark-900 border border-white/10 rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white p-1">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="text-left mb-6">
+                <span class="text-brand-500 text-xs font-semibold uppercase tracking-wider">Fast Checkout</span>
+                <h3 id="modal-bot-title" class="text-xl font-bold text-white mt-1">Order Custom Bot</h3>
+                <p id="modal-bot-price" class="text-xs text-gray-400 mt-1">Price: $99 / ₹7,999</p>
+            </div>
+
+            <form onsubmit="submitOrder(event)" class="space-y-4 text-xs">
+                <div>
+                    <label class="block text-gray-300 font-medium mb-1">Your Full Name</label>
+                    <input type="text" id="order-name" required placeholder="John Doe / Rajesh Kumar" class="w-full bg-dark-800 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-500">
+                </div>
+                <div>
+                    <label class="block text-gray-300 font-medium mb-1">Business Name & Industry</label>
+                    <input type="text" id="order-business" required placeholder="e.g. Apex Auto Detailing or Dr. Sharma Clinic" class="w-full bg-dark-800 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-500">
+                </div>
+                <div>
+                    <label class="block text-gray-300 font-medium mb-1">WhatsApp / Phone Number</label>
+                    <input type="tel" id="order-phone" required placeholder="+1 234 567 8900 or +91 98765 43210" class="w-full bg-dark-800 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-500">
+                </div>
+                <div>
+                    <label class="block text-gray-300 font-medium mb-1">Special Requirements or Notes</label>
+                    <textarea id="order-notes" rows="2" placeholder="Tell us about your services or calendar setup..." class="w-full bg-dark-800 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-500"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl transition flex items-center justify-center gap-2">
+                    <i data-lucide="send" class="w-4 h-4"></i> Send Order via WhatsApp
+                </button>
+                <p class="text-[10px] text-gray-500 text-center">Clicking redirects directly to WhatsApp with your order summary pre-filled.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-white/5 py-12 px-6 bg-dark-900 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                    <i data-lucide="bot" class="w-4 h-4"></i>
+                </div>
+                <span class="font-bold text-white text-sm">BotForge AI Agency</span>
+            </div>
+            <div>&copy; 2026 BotForge. Designed for high-converting business automation.</div>
+            <div class="flex gap-4">
+                <a href="#catalog" class="hover:text-white transition">Pricing</a>
+                <a href="#demo" class="hover:text-white transition">Live Demo</a>
+                <a href="https://wa.me/" target="_blank" class="hover:text-white transition">Direct WhatsApp Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Logic Script -->
+    <script>
+        // Lucide Icons init
+        lucide.createIcons();
+
+        // Currency State
+        let currentCurrency = 'USD';
+        function setCurrency(currency) {
+            currentCurrency = currency;
+            const btnUSD = document.getElementById('btnUSD');
+            const btnINR = document.getElementById('btnINR');
+            const priceElements = document.querySelectorAll('.price-tag');
+
+            if (currency === 'USD') {
+                btnUSD.className = "px-2.5 py-1 rounded-lg bg-brand-600 text-white transition";
+                btnINR.className = "px-2.5 py-1 rounded-lg text-gray-400 hover:text-white transition";
+                priceElements.forEach(el => el.textContent = el.getAttribute('data-usd'));
+            } else {
+                btnINR.className = "px-2.5 py-1 rounded-lg bg-brand-600 text-white transition";
+                btnUSD.className = "px-2.5 py-1 rounded-lg text-gray-400 hover:text-white transition";
+                priceElements.forEach(el => el.textContent = el.getAttribute('data-inr'));
+            }
+        }
+
+        // Demo Presets Data
+        const botPresets = {
+            auto: {
+                name: "Apex Auto Care AI",
+                greeting: "Hi there! Welcome to Apex Auto Detailing & Workshop. Need a quick quote for ceramic coating, general service, or booking a drop-off?",
+                prompts: ["How much for full ceramic coating?", "Can I drop my car tomorrow at 10 AM?", "Do you do brake inspections?"],
+                knowledge: {
+                    pricing: "Our Ceramic Coating starts at $299 (₹9,999) with 3-year warranty. Full general service is $89 (₹2,999) including oil filter.",
+                    timings: "We are open Monday to Saturday, 9:00 AM to 7:00 PM. Drop-offs welcome anytime in the morning!",
+                    booking: "I can reserve tomorrow at 10:00 AM for you! What is your car model and contact number?"
+                }
+            },
+            salon: {
+                name: "Studio Luxe Salon & Tattoos",
+                greeting: "Hello! Welcome to Studio Luxe. How can I help you today? Inquiring about haircuts, bridal styling, or tattoo consultations?",
+                prompts: ["How much for hair keratin treatment?", "Is your tattoo artist free this Friday?", "Where is your studio located?"],
+                knowledge: {
+                    pricing: "Keratin smoothing is $120 (₹4,500). Custom tattoo sessions are $90/hr (₹2,500/hr) with initial free stencil consultation.",
+                    timings: "We are open every day from 10:00 AM to 9:00 PM.",
+                    booking: "Friday at 4 PM is currently open! What tattoo design or styling service would you like to book?"
+                }
+            },
+            realestate: {
+                name: "Horizon Realty Assistant",
+                greeting: "Welcome to Horizon Properties! Are you looking to buy, rent, or schedule a site visit for our premium listings?",
+                prompts: ["What 2BHK apartments are available?", "What is the average rent in downtown?", "Can I book a property visit this Sunday?"],
+                knowledge: {
+                    pricing: "Our 2BHK luxury apartments start at $1,200/mo (₹35,000/mo) in prime central locations.",
+                    timings: "Site visits are conducted 7 days a week between 11 AM and 6 PM.",
+                    booking: "Sunday at 2:00 PM is open for a private tour. May I have your name and preferred location?"
+                }
+            }
+        };
+
+        let currentBotMode = 'auto';
+
+        function switchBotMode(mode) {
+            currentBotMode = mode;
+            document.querySelectorAll('.mode-btn').forEach(btn => {
+                btn.className = "mode-btn px-4 py-2 rounded-xl text-xs font-semibold bg-dark-800 text-gray-300 hover:text-white border border-white/10 transition flex items-center gap-2";
+            });
+            const activeBtn = document.getElementById(`mode-${mode}`);
+            activeBtn.className = "mode-btn px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white transition flex items-center gap-2";
+
+            const preset = botPresets[mode];
+            document.getElementById('demo-bot-name').textContent = preset.name;
+            resetChat();
+        }
+
+        function resetChat() {
+            const chatMessages = document.getElementById('chat-messages');
+            const preset = botPresets[currentBotMode];
+            chatMessages.innerHTML = `
+                <div class="flex items-start gap-2.5">
+                    <div class="w-6 h-6 rounded-full bg-brand-600 flex items-center justify-center text-white shrink-0 mt-0.5">
+                        <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+                    </div>
+                    <div class="bg-dark-800 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-gray-200">
+                        ${preset.greeting}
+                    </div>
+                </div>
+            `;
+            updatePrompts();
+            lucide.createIcons();
+        }
+
+        function updatePrompts() {
+            const container = document.getElementById('quick-prompts');
+            container.innerHTML = '';
+            botPresets[currentBotMode].prompts.forEach(p => {
+                const btn = document.createElement('button');
+                btn.className = "px-3 py-1.5 rounded-full bg-dark-900 hover:bg-dark-700 text-gray-300 hover:text-white border border-white/10 text-[11px] transition shrink-0";
+                btn.textContent = p;
+                btn.onclick = () => {
+                    document.getElementById('user-input').value = p;
+                    handleUserMessage();
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function handleUserMessage(e) {
+            if (e) e.preventDefault();
+            const input = document.getElementById('user-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const chatMessages = document.getElementById('chat-messages');
+
+            // User Message
+            chatMessages.innerHTML += `
+                <div class="flex items-start justify-end gap-2.5">
+                    <div class="bg-brand-600 text-white rounded-2xl rounded-tr-sm p-3 max-w-[80%]">
+                        ${text}
+                    </div>
+                </div>
+            `;
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Simulated Bot Response
+            setTimeout(() => {
+                const preset = botPresets[currentBotMode];
+                let response = "";
+                const lower = text.toLowerCase();
+
+                if (lower.includes('price') || lower.includes('cost') || lower.includes('how much') || lower.includes('fee')) {
+                    response = preset.knowledge.pricing;
+                } else if (lower.includes('timing') || lower.includes('hours') || lower.includes('open') || lower.includes('located') || lower.includes('where')) {
+                    response = preset.knowledge.timings;
+                } else {
+                    response = preset.knowledge.booking;
+                }
+
+                chatMessages.innerHTML += `
+                    <div class="flex items-start gap-2.5">
+                        <div class="w-6 h-6 rounded-full bg-brand-600 flex items-center justify-center text-white shrink-0 mt-0.5">
+                            <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+                        </div>
+                        <div class="bg-dark-800 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-gray-200">
+                            ${response}
+                        </div>
+                    </div>
+                `;
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                lucide.createIcons();
+            }, 600);
+        }
+
+        // ==========================================
+        // SUPABASE BACKEND CLIENT SETUP
+        // ==========================================
+        const SUPABASE_URL = window.ENV_SUPABASE_URL || "https://your-project-id.supabase.co";
+        const SUPABASE_ANON_KEY = window.ENV_SUPABASE_ANON_KEY || "your-anon-key";
+        let supabaseClient = null;
+
+        try {
+            if (window.supabase && SUPABASE_URL !== "https://your-project-id.supabase.co") {
+                supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            }
+        } catch (e) {
+            console.log("Supabase init note:", e);
+        }
+
+        // Order Modal Handling
+        let selectedBot = {};
+        function orderBot(name, price) {
+            selectedBot = { name, price };
+            document.getElementById('modal-bot-title').textContent = `Order: ${name}`;
+            document.getElementById('modal-bot-price').textContent = `Package Price: ${price}`;
+            document.getElementById('order-modal').classList.remove('hidden');
+            document.getElementById('order-modal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('order-modal').classList.remove('flex');
+            document.getElementById('order-modal').classList.add('hidden');
+        }
+
+        async function submitOrder(e) {
+            e.preventDefault();
+            const name = document.getElementById('order-name').value;
+            const business = document.getElementById('order-business').value;
+            const phone = document.getElementById('order-phone').value;
+            const notes = document.getElementById('order-notes').value;
+
+            // 1. Asynchronously save order to Supabase backend database
+            if (supabaseClient) {
+                try {
+                    const { data, error } = await supabaseClient
+                        .from('bot_orders')
+                        .insert([
+                            {
+                                client_name: name,
+                                business_name: business,
+                                phone: phone,
+                                package_name: selectedBot.name,
+                                price: selectedBot.price,
+                                notes: notes,
+                                status: 'pending'
+                            }
+                        ]);
+                    if (error) console.error("Supabase insert error:", error);
+                    else console.log("Order saved to Supabase:", data);
+                } catch (err) {
+                    console.error("Supabase request failed:", err);
+                }
+            }
+
+            // 2. Generate WhatsApp message url for instant notification
+            const message = `*New BotForge Order:*%0A%0A*Package:* ${selectedBot.name}%0A*Price:* ${selectedBot.price}%0A*Client Name:* ${encodeURIComponent(name)}%0A*Business:* ${encodeURIComponent(business)}%0A*Client Phone:* ${encodeURIComponent(phone)}%0A*Notes:* ${encodeURIComponent(notes)}`;
+            
+            const whatsappNumber = "919999999999"; 
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+            closeModal();
+        }
+
+        // ==========================================
+        // MULTI-LINGUAL VOICE ENGINE (ENGLISH + HINDI + KANNADA)
+        // ==========================================
+        let currentVoiceLang = 'kn'; // Default to Kannada
+
+        function setVoiceLanguage(lang) {
+            if (isCallActive) endVoiceCall();
+            currentVoiceLang = lang;
+            const btnEn = document.getElementById('vlang-en');
+            const btnHi = document.getElementById('vlang-hi');
+            const btnKn = document.getElementById('vlang-kn');
+
+            [btnEn, btnHi, btnKn].forEach(b => {
+                if (b) b.className = "px-2 py-0.5 rounded text-gray-400 hover:text-white transition";
+            });
+
+            if (lang === 'kn' && btnKn) btnKn.className = "px-2 py-0.5 rounded bg-brand-600 text-white transition";
+            else if (lang === 'hi' && btnHi) btnHi.className = "px-2 py-0.5 rounded bg-brand-600 text-white transition";
+            else if (lang === 'en' && btnEn) btnEn.className = "px-2 py-0.5 rounded bg-brand-600 text-white transition";
+
+            selectVoiceScenario(currentVoiceScenario);
+        }
+
+        const studioCallTracks = {
+            auto: {
+                name_en: "Apex Auto Detailing AI",
+                name_hi: "एपेक्स ऑटो केयर AI (प्रिया)",
+                name_kn: "ಅಪೆಕ್ಸ್ ಆಟೋ ಕೇರ್ AI (ಪ್ರಿಯಾ)",
+                greeting_en: "Thank you for calling Apex Auto Detailing! This is Sarah, your AI receptionist. Are you looking to book a general service or inquire about our 3-year ceramic coating package?",
+                greeting_hi: "नमस्ते! एपेक्स ऑटो केयर में आपका स्वागत है। मैं प्रिया बोल रही हूँ। क्या आप अपनी गाड़ी की सर्विस या सेरेमिक कोटिंग के बारे में जानकारी चाहते हैं?",
+                greeting_kn: "ನಮಸ್ಕಾರ! ಅಪೆಕ್ಸ್ ಆಟೋ ಕೇರ್ ವರ್ಕ್‌ಶಾಪ್‌ಗೆ ಸ್ವಾಗತ. ನನ್ನ ಹೆಸರು ಪ್ರಿಯಾ. ನಿಮ್ಮ ಕಾರಿನ ಸರ್ವೀಸ್ ಅಥವಾ ಸೆರಾಮಿಕ್ ಕೋಟಿಂಗ್ ಬಗ್ಗೆ ಮಾಹಿತಿ ಬೇಕೆ?",
+                qa_en: [
+                    { q: "How much is ceramic coating?", a: "Our 3-year ceramic coating is $299 (or ₹9,999) including 2-stage paint correction. Would you like to reserve a slot for tomorrow?" },
+                    { q: "Can I book tomorrow at 10 AM?", a: "Tomorrow at 10:00 AM is wide open! I will lock that in for you right now and text you our location." }
+                ],
+                qa_hi: [
+                    { q: "सेरेमिक कोटिंग का क्या चार्ज है?", a: "सर, हमारी 3-साल की सेरेमिक कोटिंग ₹9,999 से शुरू होती है। इसमें कम्प्लीट पेंट करेक्शन शामिल है। क्या आप कल के लिए स्लॉट बुक करवाना चाहेंगे?" },
+                    { q: "कल सुबह 10 बजे का टाइम मिलेगा?", a: "जी बिल्कुल! कल सुबह 10:00 बजे का स्लॉट आपके लिए रिज़र्व कर दिया गया है। वर्कशॉप का पता आपको व्हाट्सएप पर भेज दिया गया है।" }
+                ],
+                qa_kn: [
+                    { q: "ಸೆರಾಮಿಕ್ ಕೋಟಿಂಗ್ ಬೆಲೆ ಎಷ್ಟು?", a: "ಸರ್, ನಮ್ಮ 3 ವರ್ಷದ ಸೆರಾಮಿಕ್ ಕೋಟಿಂಗ್ ₹9,999 ರಿಂದ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ. ನೀವು ನಾಳೆಗೆ ಸ್ಲಾಟ್ ಬುಕ್ ಮಾಡಲು ಬಯಸುತ್ತೀರಾ?" },
+                    { q: "ನಾಳೆ ಬೆಳಗ್ಗೆ 10 ಗಂಟೆಗೆ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಸಿಗುತ್ತಾ?", a: "ಹೌದು ಖಂಡಿತ! ನಾಳೆ ಬೆಳಗ್ಗೆ 10:00 ಗಂಟೆಗೆ ನಿಮ್ಮ ಕಾರಿನ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಬುಕ್ ಮಾಡಲಾಗಿದೆ. ವಿಳಾಸವನ್ನು ವಾಟ್ಸಾಪ್‌ಗೆ ಕಳುಹಿಸಲಾಗಿದೆ." }
+                ]
+            },
+            clinic: {
+                name_en: "CarePoint Dental & Medical AI",
+                name_hi: "केयरपॉइंट डेंटल क्लिनिक (डॉ. शर्मा)",
+                name_kn: "ಕೇರ್‌ಪಾಯಿಂಟ್ ಡೆಂಟಲ್ ಕ್ಲಿನಿಕ್ (ಡಾ. ಶರ್ಮಾ)",
+                greeting_en: "Hello, thank you for calling CarePoint Dental. This is Maya. Dr. Sharma has consultation slots today at 4 PM and 5:30 PM. How can I assist you?",
+                greeting_hi: "नमस्ते! केयरपॉइंट क्लिनिक में आपका स्वागत है। मैं डॉ. शर्मा की असिस्टेंट बोल रही हूँ। क्या आपको आज डॉक्टर की अपॉइंटमेंट बुक करनी है?",
+                greeting_kn: "ನಮಸ್ಕಾರ, ಕೇರ್‌ಪಾಯಿಂಟ್ ಡೆಂಟಲ್ ಕ್ಲಿನಿಕ್‌ಗೆ ಸ್ವಾಗತ. ನಾನು ಡಾ. ಶರ್ಮಾ ಅವರ ಅಸಿಸ್ಟೆಂಟ್. ನೀವು ಇವತ್ತಿಗೆ ಡಾಕ್ಟರ್ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಬುಕ್ ಮಾಡಲು ಬಯಸುತ್ತೀರಾ?",
+                qa_en: [
+                    { q: "What are your consultation fees?", a: "Our consultation fee is ₹500 ($45). We have an opening at 5:30 PM today. Shall I book that for you?" },
+                    { q: "Can you book me for 5:30 PM?", a: "You're all set for 5:30 PM today with Dr. Sharma! Please arrive 10 minutes early." }
+                ],
+                qa_hi: [
+                    { q: "डॉक्टर साहब आज बैठेंगे क्या?", a: "जी हाँ, डॉ. शर्मा आज शाम 5 बजे से रात 8 बजे तक क्लिनिक में मौजूद हैं। कंसल्टेशन फीस ₹500 है। क्या मैं आपकी अपॉइंटमेंट बुक कर दूँ?" },
+                    { q: "शाम 6 बजे का स्लॉट दे दीजिए", a: "जी, आज शाम 6:00 बजे की अपॉइंटमेंट आपके नाम से कन्फर्म कर दी गई है। कृपया समय से 10 मिनट पहले पधारें।" }
+                ],
+                qa_kn: [
+                    { q: "ಡಾಕ್ಟರ್ ಇವತ್ತು ಕ್ಲಿನಿಕ್‌ನಲ್ಲಿ ಇರ್ತಾರಾ?", a: "ಹೌದು, ಡಾ. ಶರ್ಮಾ ಅವರು ಇಂದು ಸಂಜೆ 5 ರಿಂದ ರಾತ್ರಿ 8 ರವರೆಗೆ ಲಭ್ಯವಿರುತ್ತಾರೆ. ಕನ್ಸಲ್ಟೇಶನ್ ಫೀಸ್ ₹500. ನಾನು ನಿಮ್ಮ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಬುಕ್ ಮಾಡಲೇ?" },
+                    { q: "ಸಂಜೆ 6 ಗಂಟೆಗೆ ಬುಕ್ ಮಾಡಿ", a: "ಖಂಡಿತ, ಇಂದು ಸಂಜೆ 6:00 ಗಂಟೆಗೆ ನಿಮ್ಮ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಕನ್ಫರ್ಮ್ ಆಗಿದೆ. ದಯವಿಟ್ಟು 10 ನಿಮಿಷ ಮುಂಚಿತವಾಗಿ ಬನ್ನಿ." }
+                ]
+            },
+            salon: {
+                name_en: "Studio Luxe Salon & Tattoos",
+                name_hi: "स्टूडियो लक्स सैलून (सिमरन)",
+                name_kn: "ಸ್ಟುಡಿಯೋ ಲಕ್ಸ್ ಸಲೂನ್ (ಸಿಮ್ರಾನ್)",
+                greeting_en: "Hi there! Welcome to Studio Luxe. This is Elena. Are you looking to schedule hair styling, keratin, or a tattoo consultation today?",
+                greeting_hi: "हेलो! स्टूडियो लक्स में आपका स्वागत है। मैं सिमरन। क्या आप हेयर सर्विस, केराटिन या टैटू कंसल्टेशन के लिए बात करना चाहते हैं?",
+                greeting_kn: "ಹಲೋ! ಸ್ಟುಡಿಯೋ ಲಕ್ಸ್‌ಗೆ ಸ್ವಾಗತ. ನನ್ನ ಹೆಸರು ಸಿಮ್ರಾನ್. ನೀವು ಹೇರ್ ಸ್ಟೈಲಿಂಗ್, ಕೆರಾಟಿನ್ ಅಥವಾ ಟ್ಯಾಟೂ ಕನ್ಸಲ್ಟೇಶನ್ ಬುಕ್ ಮಾಡಲು ಬಯಸುತ್ತೀರಾ?",
+                qa_en: [
+                    { q: "How much is hair keratin?", a: "Our premium keratin treatment is ₹4,500 ($120). Would you like a slot this Saturday?" },
+                    { q: "Is the tattoo artist available?", a: "Our senior tattoo artist has an opening this Friday at 4 PM with a free stencil consultation." }
+                ],
+                qa_hi: [
+                    { q: "केराटिन ट्रीटमेंट कितने का है?", a: "मैम, हमारा प्रीमियम केराटिन ट्रीटमेंट ₹4,500 से शुरू होता है। इसमें लगभग 2 घंटे का समय लगता है। क्या आप शनिवार के लिए बुक करना चाहेंगी?" },
+                    { q: "टैटू आर्टिस्ट कब फ्री हैं?", a: "हमारे सीनियर टैटू आर्टिस्ट शुक्रवार को शाम 4 बजे उपलब्ध हैं। इसके साथ फ्री डिज़ाइन कंसल्टेशन शामिल है।" }
+                ],
+                qa_kn: [
+                    { q: "ಕೆರಾಟಿನ್ ಟ್ರೀಟ್‌ಮೆಂಟ್ ಬೆಲೆ ಎಷ್ಟು?", a: "ನಮ್ಮ ಪ್ರೀಮಿಯಂ ಕೆರಾಟಿನ್ ಟ್ರೀಟ್‌ಮೆಂಟ್ ₹4,500 ರಿಂದ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ. ಇದಕ್ಕೆ ಸುಮಾರು 2 ಗಂಟೆ ಸಮಯ ಬೇಕಾಗುತ್ತದೆ." },
+                    { q: "ಟ್ಯಾಟೂ ಆರ್ಟಿಸ್ಟ್ ಯಾವಾಗ ಲಭ್ಯವಿದ್ದಾರೆ?", a: "ನಮ್ಮ ಸೀನಿಯರ್ ಟ್ಯಾಟೂ ಆರ್ಟಿಸ್ಟ್ ಶುಕ್ರವಾರ ಸಂಜೆ 4 ಗಂಟೆಗೆ ಲಭ್ಯವಿದ್ದಾರೆ. ಉಚಿತ ಡಿಸೈನ್ ಕನ್ಸಲ್ಟೇಶನ್ ಇರುತ್ತದೆ." }
+                ]
+            }
+        };
+
+        let currentVoiceScenario = 'auto';
+        let callTimerInterval = null;
+        let callSeconds = 0;
+        let isCallActive = false;
+
+        function selectVoiceScenario(key) {
+            if (isCallActive) endVoiceCall();
+            currentVoiceScenario = key;
+            document.querySelectorAll('.vbtn').forEach(b => {
+                b.className = "vbtn px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-dark-900 text-gray-400 hover:text-white border border-white/5 transition";
+            });
+            const activeBtn = document.getElementById(`vbtn-${key}`);
+            if (activeBtn) activeBtn.className = "vbtn px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-brand-600 text-white border border-brand-500 transition";
+
+            const scenario = studioCallTracks[key];
+            let name = scenario.name_en;
+            let prompt = `"Click 'Start Live Voice Call' to test ${name}..."`;
+
+            if (currentVoiceLang === 'kn') {
+                name = scenario.name_kn;
+                prompt = `"ಕರೆ ಪ್ರಾರಂಭಿಸಲು 'Start Live Voice Call' ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ..."`;
+            } else if (currentVoiceLang === 'hi') {
+                name = scenario.name_hi;
+                prompt = `"कॉल शुरू करने के लिए 'Start Live Voice Call' पर क्लिक करें..."`;
+            }
+
+            document.getElementById('voice-caller-name').textContent = name;
+            document.getElementById('voice-transcript').textContent = prompt;
+        }
+
+        // Realistic Phone Ring Tone & Beep
+        function playRingSound(onComplete) {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+                osc.frequency.setValueAtTime(480, audioCtx.currentTime); 
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                
+                setTimeout(() => {
+                    osc.stop();
+                    if (onComplete) onComplete();
+                }, 1100);
+            } catch(e) {
+                if (onComplete) onComplete();
+            }
+        }
+
+        let currentAudioPlayer = null;
+
+        // REAL MP3 RECORDING AUDIO PLAYER (No Robotic Synthesizer!)
+        function playVoiceAudio(audioFile, fallbackText, onComplete) {
+            // Stop any ongoing audio
+            if (currentAudioPlayer) {
+                currentAudioPlayer.pause();
+                currentAudioPlayer.currentTime = 0;
+            }
+
+            animateWaveform(true);
+
+            currentAudioPlayer = new Audio(`audio/${audioFile}`);
+            currentAudioPlayer.play().then(() => {
+                // Waveform pulse animation
+                waveInterval = setInterval(() => {
+                    if (currentAudioPlayer && !currentAudioPlayer.paused) animateWaveform(true);
+                }, 140);
+            }).catch(err => {
+                console.log("Audio file play error, fallback:", err);
+                animateWaveform(false);
+                if (onComplete) onComplete();
+            });
+
+            currentAudioPlayer.onended = () => {
+                clearInterval(waveInterval);
+                animateWaveform(false);
+                if (onComplete) onComplete();
+            };
+
+            currentAudioPlayer.onerror = (e) => {
+                console.log("Audio load error:", e);
+                clearInterval(waveInterval);
+                animateWaveform(false);
+                if (onComplete) onComplete();
+            };
+        }
+
+        function animateWaveform(active) {
+            const bars = document.querySelectorAll('#audio-waveform span');
+            bars.forEach((bar, idx) => {
+                if (active) {
+                    bar.style.height = `${Math.floor(Math.random() * 26 + 10)}px`;
+                    bar.style.backgroundColor = '#6366f1';
+                } else {
+                    bar.style.height = `${(idx % 3 + 1) * 6}px`;
+                    bar.style.backgroundColor = 'rgba(99, 102, 241, 0.4)';
+                }
+            });
+        }
+
+        let waveInterval = null;
+
+        function startVoiceCall() {
+            isCallActive = true;
+            document.getElementById('btn-start-call').classList.add('hidden');
+            document.getElementById('btn-end-call').classList.remove('hidden');
+            document.getElementById('btn-end-call').classList.add('inline-flex');
+            
+            document.getElementById('voice-call-status').textContent = currentVoiceLang === 'hi' ? "कॉल लग रही है... (Sub-800ms)" : "Calling... (Sub-800ms)";
+            document.getElementById('voice-transcript').textContent = currentVoiceLang === 'hi' ? "सर्वर से कनेक्ट हो रहा है..." : "Connecting to voice server...";
+
+            playRingSound(() => {
+                if (!isCallActive) return;
+                
+                document.getElementById('voice-call-status').textContent = currentVoiceLang === 'hi' ? "● कॉल कनेक्टेड (00:00) | लाइव हिंदी वॉइस" : "● Connected (00:00) | HD Audio Line";
+                document.getElementById('voice-call-status').className = "text-xs text-green-400 mt-1 font-semibold";
+                
+                callSeconds = 0;
+                callTimerInterval = setInterval(() => {
+                    callSeconds++;
+                    const mins = String(Math.floor(callSeconds / 60)).padStart(2, '0');
+                    const secs = String(callSeconds % 60).padStart(2, '0');
+                    if (isCallActive) {
+                        const statusPrefix = currentVoiceLang === 'hi' ? "● कॉल कनेक्टेड" : "● Connected";
+                        document.getElementById('voice-call-status').textContent = `${statusPrefix} (${mins}:${secs})`;
+                    }
+                }, 1000);
+
+                waveInterval = setInterval(() => {
+                    if (window.speechSynthesis.speaking) animateWaveform(true);
+                }, 140);
+
+                const scenario = studioCallTracks[currentVoiceScenario];
+                let greeting = scenario.greeting_en;
+                let callerTitle = "AI Receptionist:";
+
+                if (currentVoiceLang === 'kn') {
+                    greeting = scenario.greeting_kn;
+                    callerTitle = "AI ರಿಸೆಪ್ಷನಿಸ್ಟ್ (ಪ್ರಿಯಾ):";
+                } else if (currentVoiceLang === 'hi') {
+                    greeting = scenario.greeting_hi;
+                    callerTitle = "AI रिसेप्शनिस्ट (प्रिया):";
+                }
+
+                document.getElementById('voice-transcript').innerHTML = `
+                    <div class="text-left space-y-2">
+                        <div><span class="text-brand-400 font-bold">${callerTitle}</span> "${greeting}"</div>
+                    </div>
+                `;
+
+                // Play REAL audio MP3 recording
+                playVoiceAudio(`greeting_${currentVoiceLang}.mp3`, greeting, () => {
+                    renderCallQuestions();
+                });
+            });
+        }
+
+        function renderCallQuestions() {
+            const scenario = studioCallTracks[currentVoiceScenario];
+            const transcript = document.getElementById('voice-transcript');
+            let qaList = scenario.qa_en;
+            let promptTitle = "Click to ask the AI receptionist a question:";
+
+            if (currentVoiceLang === 'kn') {
+                qaList = scenario.qa_kn;
+                promptTitle = "AI ರಿಸೆಪ್ಷನಿಸ್ಟ್‌ಗೆ ಪ್ರಶ್ನೆ ಕೇಳಿ (ಕ್ಲಿಕ್ ಮಾಡಿ):";
+            } else if (currentVoiceLang === 'hi') {
+                qaList = scenario.qa_hi;
+                promptTitle = "AI रिसेप्शनिस्ट से सवाल पूछें (क्लिक करें):";
+            }
+            
+            let buttonsHtml = `
+                <div class="mt-4 pt-3 border-t border-white/5">
+                    <div class="text-[10px] text-gray-400 mb-2 font-medium">${promptTitle}</div>
+                    <div class="flex flex-wrap gap-2 justify-center">
+            `;
+            qaList.forEach((item, idx) => {
+                buttonsHtml += `<button onclick="askVoiceQuestion(${idx})" class="px-3 py-1.5 rounded-full bg-brand-600/80 hover:bg-brand-500 text-white text-[11px] font-semibold border border-brand-400/30 transition shadow-sm flex items-center gap-1.5">
+                    <i data-lucide="mic" class="w-3 h-3"></i> ${item.q}
+                </button>`;
+            });
+            buttonsHtml += `</div></div>`;
+            transcript.innerHTML += buttonsHtml;
+            lucide.createIcons();
+        }
+
+        function askVoiceQuestion(idx) {
+            const scenario = studioCallTracks[currentVoiceScenario];
+            let qaList = scenario.qa_en;
+            let youLabel = "You:";
+            let aiLabel = "AI Receptionist:";
+
+            if (currentVoiceLang === 'kn') {
+                qaList = scenario.qa_kn;
+                youLabel = "ನೀವು:";
+                aiLabel = "AI ರಿಸೆಪ್ಷನಿಸ್ಟ್:";
+            } else if (currentVoiceLang === 'hi') {
+                qaList = scenario.qa_hi;
+                youLabel = "आप:";
+                aiLabel = "AI रिसेप्शनिस्ट:";
+            }
+
+            const item = qaList[idx];
+            const transcript = document.getElementById('voice-transcript');
+            
+            transcript.innerHTML = `
+                <div class="text-left space-y-2 text-xs">
+                    <div><span class="text-gray-400 font-bold">${youLabel}</span> "${item.q}"</div>
+                    <div><span class="text-brand-400 font-bold">${aiLabel}</span> "${item.a}"</div>
+                </div>
+            `;
+            
+            // Play REAL answer MP3 recording
+            playVoiceAudio(`qa${idx + 1}_${currentVoiceLang}.mp3`, item.a, () => {
+                renderCallQuestions();
+            });
+        }
+
+        function endVoiceCall() {
+            isCallActive = false;
+            if (currentAudioPlayer) {
+                currentAudioPlayer.pause();
+                currentAudioPlayer.currentTime = 0;
+            }
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            clearInterval(callTimerInterval);
+            clearInterval(waveInterval);
+            animateWaveform(false);
+
+            document.getElementById('btn-end-call').classList.add('hidden');
+            document.getElementById('btn-start-call').classList.remove('hidden');
+            
+            let statusText = "Call Ended • Ready to Call Again";
+            let transText = `"Call finished. Click 'Start Live Voice Call' to test again."`;
+
+            if (currentVoiceLang === 'kn') {
+                statusText = "ಕರೆ ಮುಕ್ತಾಯವಾಗಿದೆ • ಮತ್ತೆ ಕರೆ ಮಾಡಲು ಕ್ಲಿಕ್ ಮಾಡಿ";
+                transText = `"ಕರೆ ಮುಕ್ತಾಯಗೊಂಡಿದೆ. ಹೊಸ ಪರೀಕ್ಷೆಗಾಗಿ 'Start Live Voice Call' ಕ್ಲಿಕ್ ಮಾಡಿ."`;
+            } else if (currentVoiceLang === 'hi') {
+                statusText = "कॉल समाप्त • दोबारा कॉल करने के लिए क्लिक करें";
+                transText = `"कॉल समाप्त हो गई। नया टेस्ट करने के लिए 'Start Live Voice Call' पर क्लिक करें।"`;
+            }
+
+            document.getElementById('voice-call-status').textContent = statusText;
+            document.getElementById('voice-call-status').className = "text-xs text-gray-400 mt-1";
+            document.getElementById('voice-transcript').textContent = transText;
+        }
+
+        // Initialize default view
+        switchBotMode('auto');
+    </script>
+</body>
+</html>
